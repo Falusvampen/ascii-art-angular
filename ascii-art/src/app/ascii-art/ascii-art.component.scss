@@ -1,0 +1,59 @@
+$primary-color: #4CAF50;
+$secondary-color: #fff;
+$border-radius: 4px;
+
+// Header Styling
+.ascii-art-header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+// Main Container Styling
+.ascii-art-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+
+    .ascii-art-label {
+        font-size: 1.2rem;
+        margin-bottom: .5rem;
+    }
+
+    .ascii-art-input {
+        padding: .5rem;
+        font-size: 1rem;
+        border: 1px solid lighten($primary-color, 10%);
+        border-radius: $border-radius;
+        margin-bottom: 1rem;
+    }
+
+    .ascii-art-button {
+        background-color: $primary-color;
+        color: $secondary-color;
+        padding: .7rem 1.5rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($primary-color, 5%);
+        }
+    }
+}
+
+// Output Styling
+.ascii-art-output {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+// Footer Styling
+.ascii-art-footer {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 2rem;
+}

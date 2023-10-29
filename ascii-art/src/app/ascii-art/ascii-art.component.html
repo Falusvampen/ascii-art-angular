@@ -1,0 +1,23 @@
+<!-- Header -->
+<div class="ascii-art-header">
+  <h1>ASCII Art Generator</h1>
+</div>
+
+<!-- Main Container -->
+<div class="ascii-art-container">
+  <label class="ascii-art-label" for="asciiInput">Enter Text: </label>
+  <input
+    class="ascii-art-input"
+    id="asciiInput"
+    [(ngModel)]="inputText"
+    (ngModelChange)="textToAsciiArt()"
+  />
+</div>
+
+<!-- Output -->
+<pre class="ascii-art-output">{{ asciiArtText }}</pre>
+
+<!-- Footer -->
+<div class="ascii-art-footer">
+  <p>Created by Falusvampen</p>
+</div>
