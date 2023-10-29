@@ -1,17 +1,29 @@
 <!-- Header -->
 <div class="ascii-art-header">
-  <h1>ASCII Art Generator</h1>
+  <h1>ASCII Art Generator 🎨</h1>
 </div>
 
 <!-- Main Container -->
 <div class="ascii-art-container">
+  <label class="ascii-art-label" for="fontSelector">Choose Font: </label>
+  <select
+    id="fontSelector"
+    [(ngModel)]="selectedFont"
+    (ngModelChange)="changeFont()"
+  >
+    <option value="standard">Standard</option>
+    <option value="shadow">Shadow</option>
+  </select>
+
   <label class="ascii-art-label" for="asciiInput">Enter Text: </label>
-  <input
+  <textarea
     class="ascii-art-input"
     id="asciiInput"
     [(ngModel)]="inputText"
     (ngModelChange)="textToAsciiArt()"
-  />
+    rows="4"
+    cols="50"
+  ></textarea>
 </div>
 
 <!-- Output -->
