@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ascii-art.component.scss']
 })
 export class AsciiArtComponent implements OnInit {
-  public inputText: string = '';
+
+  public inputText: string = 'Welcome to\nAscii Art!';
   public asciiArtText: string = '';
   public selectedFont: string = 'standard';
   private asciiMap: { [key: string]: string } = {};
@@ -17,8 +18,25 @@ export class AsciiArtComponent implements OnInit {
   ngOnInit(): void {
     this.readAndParseFontFile(this.selectedFont).then(map => {
       this.asciiMap = map;
+      this.inputText = 'Welcome to\nAscii Art!';
+      this.textToAsciiArt();
     });
   }
+
+  clearInitialText(event: FocusEvent) {
+  if (this.inputText === 'Welcome to\nAscii Art!') {
+    this.inputText = '';
+    this.textToAsciiArt(); // Update the ASCII art as well.
+  }
+}
+
+public isShadowFont: boolean = false;
+
+toggleFont() {
+  this.selectedFont = this.isShadowFont ? 'shadow' : 'standard';
+  this.changeFont();
+}
+
 
   async readAndParseFontFile(font: string) {
     const filename = `assets/Fonts/${font}.txt`;
@@ -49,6 +67,27 @@ export class AsciiArtComponent implements OnInit {
       this.textToAsciiArt();
     });
   }
+
+  adjustTextArea(event: Event) {
+  const textArea = event.target as HTMLTextAreaElement;
+  let value = textArea.value;
+  const lines = value.split('\n');
+  
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].length > 14) {
+      const overflow = lines[i].slice(14);
+      lines[i] = lines[i].substring(0, 14);
+      lines.splice(i + 1, 0, overflow);
+      i++;  // Skip the line that we just added, to avoid endless splitting
+    }
+  }
+
+  value = lines.join('\n');
+  textArea.value = value;
+  this.inputText = value;
+  this.textToAsciiArt();
+}
+
 
   textToAsciiArt() {
   // Initialize an array to hold lines of ASCII art
