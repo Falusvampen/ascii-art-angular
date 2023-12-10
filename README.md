@@ -2,12 +2,12 @@
 
 ## Table of Contents 📑
 
-1. [Overview]
-2. [Technologies]
-3. [Installation]
-4. [Usage]
-5. [Contributing]
-6. [Acknowledgments]
+1. [Overview](#Overview)
+2. [Technologies](#Technologies)
+3. [Installation](#Installation)
+4. [Usage](#Usage)
+5. [Contributing](#Contributing)
+6. [Acknowledgments](#Acknowledgments)
 
 ## Overview 🌟
 
